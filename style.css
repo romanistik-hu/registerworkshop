@@ -77,7 +77,35 @@ h4 {
 }
 
 .nav-links li {
-    margin-left: 2rem;
+    margin-left: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.lang-switcher {
+    margin-left: 2rem !important;
+    display: flex;
+    gap: 0.8rem;
+}
+
+.lang-switcher a {
+    font-size: 1.2rem;
+    padding: 0;
+}
+
+.flag {
+    transition: var(--transition);
+}
+
+.lang-switcher a:hover .flag {
+    transform: scale(1.2);
+}
+
+.funding {
+    font-size: 0.8rem;
+    max-width: 600px;
+    margin: 1rem auto;
+    opacity: 0.8;
 }
 
 .nav-links a {
