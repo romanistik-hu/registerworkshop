@@ -71,6 +71,11 @@ h4 {
     color: var(--primary-color);
 }
 
+.logo a {
+    color: inherit;
+    text-decoration: none;
+}
+
 .nav-links {
     display: flex;
     list-style: none;
