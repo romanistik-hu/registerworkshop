@@ -1,4 +1,4 @@
-# Workshop: On the Interplay between Register and Socio-Geographic Variation in Spanish
+# Workshop
 
 This repository contains the web page for the workshop organized by Project A09 of the SFB 1412 "Register".
 
