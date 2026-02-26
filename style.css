@@ -46,9 +46,28 @@ h4 {
     padding: 0 2rem;
 }
 
+/* Logo Header */
+.logo-header {
+    background: var(--white);
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    position: relative;
+    z-index: 1001;
+}
+
+.logo-header img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+}
+
 /* Navbar */
 #navbar {
-    position: fixed;
+    position: sticky;
     top: 0;
     width: 100%;
     z-index: 1000;
