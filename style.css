@@ -60,6 +60,7 @@ h4 {
     justify-content: flex-end;
     align-items: center;
     gap: 3rem;
+    flex-direction: row-reverse;
 }
 
 .logo-header img {
@@ -70,7 +71,7 @@ h4 {
 }
 
 .logo-hu {
-    height: 110px !important;
+    height: 130px !important;
 }
 
 /* Navbar */
@@ -197,6 +198,7 @@ h4 {
     line-height: 1.1;
     color: #ffffff;
     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    word-break: keep-all;
 }
 
 .hero h2 {
