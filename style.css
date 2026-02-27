@@ -144,8 +144,7 @@ h4 {
     color: var(--text-color);
     font-weight: 600;
     font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    text-transform: none !important;
     transition: var(--transition);
 }
 
