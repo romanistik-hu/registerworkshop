@@ -46,6 +46,23 @@ h4 {
     padding: 0 2rem;
 }
 
+/* SPA Layout Additions */
+.no-wrap-mobile {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+body.spa-enabled header.hero, 
+body.spa-enabled main .section {
+    display: none;
+}
+
+body.spa-enabled header.hero.active-section, 
+body.spa-enabled main .section.active-section {
+    display: block;
+    animation: fadeIn 0.5s ease forwards;
+}
+
 /* Logo Header */
 .logo-header {
     background: var(--white);
@@ -664,6 +681,19 @@ h4 {
 
     .contact-email {
         font-size: 1.5rem;
+    }
+
+    .no-wrap-mobile {
+        white-space: normal;
+        display: inline;
+    }
+
+    .speakers-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .speaker-card {
+        padding: 1.5rem;
     }
 }
 

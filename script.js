@@ -1,20 +1,70 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Reveal animations on scroll
-    const sections = document.querySelectorAll('.section');
+    // Enable SPA mode
+    document.body.classList.add('spa-enabled');
+    
+    const sections = document.querySelectorAll('header.hero, main .section');
+    const navLinks = document.querySelectorAll('.nav-links a');
 
-    const revealOnScroll = () => {
+    function showSection(hash) {
+        if (!hash || hash === '#' || hash === '#home') {
+            hash = '#home';
+        }
+
+        let sectionFound = false;
+        
         sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            if (sectionTop < windowHeight * 0.85) {
-                section.classList.add('active');
-                // Added via CSS if needed, but we'll use a simple approach here
+            if ('#' + section.id === hash) {
+                section.classList.add('active-section');
+                sectionFound = true;
+            } else {
+                section.classList.remove('active-section');
             }
         });
-    };
 
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll(); // Initial check
+        // Fallback to home if invalid hash
+        if (!sectionFound) {
+            document.getElementById('home').classList.add('active-section');
+            hash = '#home';
+        }
+
+        // Keep scroll at top when changing sections
+        window.scrollTo(0, 0);
+    }
+
+    // Handle navigation clicks
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Only handle internal links
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                history.pushState(null, null, href);
+                showSection(href);
+            }
+        });
+    });
+
+    // Also handle hero buttons
+    const heroBtns = document.querySelectorAll('.hero-btns a');
+    heroBtns.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                history.pushState(null, null, href);
+                showSection(href);
+            }
+        });
+    });
+
+    // Handle back/forward browser buttons
+    window.addEventListener('popstate', () => {
+        showSection(window.location.hash);
+    });
+
+    // Initial load
+    showSection(window.location.hash);
 
     // Navbar background change on scroll
     const navbar = document.getElementById('navbar');
